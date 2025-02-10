@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+body {
+  background: #202125;
+  color: white;
+}
+
+@font-face {
+  font-family: Google sans-normal;
+  src: url("./assets/fonts/ProductSans-Light.woff");
+}
+
+@font-face {
+  font-family: google sans-bold;
+  src: url("./assets/fonts/ProductSans-Bold.woff");
+}
+
+.font-google-bold {
+  font-family: google sans-bold, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0 auto;
+  user-select: none;
+  font-family: Google sans-normal, Helvetica, sans-serif;
+}
+
+.add-bg {
+  background-image: url("https://www.gstatic.com/travel-frontend/animation/hero/flights_nc_dark_theme_4.svg");
+}
+
+/* Default state for the arrow (pointing down) */
+.rotate-down {
+  transition: transform 0.5s ease;
+  transform: rotateX(0deg);
+  transform-origin: center;
+}
+
+/* When dropdown is active (flip the arrow up) */
+.rotate-up {
+  transition: transform 0.5s ease;
+  transform: rotateX(180deg); /* Arrow flips upwards */
+  transform-origin: center; /* Arrow points up when clicked */
+}
