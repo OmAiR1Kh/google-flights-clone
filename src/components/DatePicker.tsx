@@ -23,7 +23,6 @@ const Calendar: React.FC<CalendarProps> = ({
   const [endDate, setEndDate] = useState<DateState>(null);
   const [currentMonthOffset, setCurrentMonthOffset] = useState<number>(0);
 
-
   const handleDateClick = (date: Date) => {
     if (isRangePicker) {
       if (!startDate || (startDate && endDate)) {
@@ -121,14 +120,18 @@ const Calendar: React.FC<CalendarProps> = ({
   };
 
   return (
-    <div className="bg-[#36373b] p-6 rounded-lg md:w-[50vw] flex flex-col">
+    <div
+      className={`bg-[#36373b] p-6 rounded-lg ${
+        isRangePicker ? "md:w-[50vw]" : "md:w-[25vw]"
+      } flex flex-col gap-3`}
+    >
       <div className="flex gap-4 flex-col md:flex-row">
         {renderCalendar()}
         {isRangePicker && renderCalendar(1)}
       </div>
       <button
         type="button"
-        className="text-white bg-[#8ab5f9] p-2 rounded-xl px-4 cursor-pointer"
+        className="text-white bg-[#8ab5f9] p-2 rounded-xl px-4 cursor-pointer !m-0 self-end"
         onClick={(e) => {
           e.stopPropagation();
           setShowCalendar((prev: boolean) => !prev);
